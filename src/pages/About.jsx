@@ -7,7 +7,7 @@ export default function About() {
                 <h2>Hello, welcome to the about page!</h2>
                 <div className="links">
                     <Link to="/">Home</Link>
-                    <Link to="/contact">Contact</Link>
+                    <Link to="/contact?ref=about-page">Contact</Link>
                 </div>
             </div>
         </>
