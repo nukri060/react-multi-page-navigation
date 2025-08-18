@@ -1,5 +1,5 @@
-import { UserEl } from "./userEl";
 import { useState, useEffect } from "react";
+import { UserCard } from "./UserCard";
 
 export function UsersList() {
   const [users, setUsers] = useState([]);
@@ -9,13 +9,15 @@ export function UsersList() {
     fetch("https://randomuser.me/api/?results=10&nat=us,gb,fr,es,ca")
       .then((res) => res.json())
       .then((data) => {
-        const mappedUsers = data.results.map((user) => ({
-          fullname: `${user.name.first} ${user.name.last}`,
-          age: user.dob.age,
-          photo: user.picture.medium,
-        }));
-        setUsers(mappedUsers);
-        setLoading(false);
+        setTimeout(() => {
+          const mappedUsers = data.results.map((user) => ({
+            fullname: `${user.name.first} ${user.name.last}`,
+            age: user.dob.age,
+            photo: user.picture.large,
+          }));
+          setUsers(mappedUsers);
+          setLoading(false);
+        }, 1000);
       })
       .catch((err) => {
         console.error("Error fetching users:", err);
@@ -23,14 +25,24 @@ export function UsersList() {
       });
   }, []);
 
-  if (loading) return <p>Loading users...</p>;
+  if (loading) return (
+    <div className="users-list">
+      {[...Array(6)].map((_, i) => (
+        <div key={i} className="user-card-skeleton">
+          <div className="skeleton-photo"></div>
+          <div className="skeleton-text"></div>
+          <div className="skeleton-text short"></div>
+        </div>
+      ))}
+    </div>
+  );
 
   return (
     <div className="users-list">
       {users.map((user, index) => (
-        <UserEl
+        <UserCard
           key={index}
-          name={user.fullname}
+          fullname={user.fullname}
           age={user.age}
           photo={user.photo}
         />

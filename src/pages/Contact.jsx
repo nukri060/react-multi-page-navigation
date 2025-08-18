@@ -7,17 +7,17 @@ export default function Contact() {
   const navigate = useNavigate();
 
   return (
-    <>
+    <div className="contact-page-wrapper">
       <h2>{ref ? `Came from: ${ref}` : "Contact Page"}</h2>
 
       <form className="contact-form">
         <div>
           <label htmlFor="name">Name: </label>
-          <input type="text" className="name-field" />
+          <input type="text" id="name" />
         </div>
         <div>
           <label htmlFor="message">Message: </label>
-          <textarea className="message-field" />
+          <textarea id="message" />
         </div>
       </form>
 
@@ -27,6 +27,6 @@ export default function Contact() {
       </div>
 
       <button onClick={() => navigate("/")}>Go to Home Programmatically</button>
-    </>
+    </div>
   );
 }

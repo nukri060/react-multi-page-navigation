@@ -2,22 +2,28 @@ import { Link } from "react-router-dom";
 import { UsersList } from "../components/usersList";
 
 export default function Home() {
-    return (
-        <>
-            <div className="home-page-wrapper">
-                <h2>Hello, welcome to the home page!</h2>
-                <div className="links">
-                    <Link to="/about">About</Link>
-                    <Link to="/contact?ref=homepage">Contact from Homepage</Link>
-                    <Link to="/contact?ref=dist">Contact from Dist</Link>
-                </div>
-                <div className="links">
-                    <Link to="/user/Alex">Alex Page</Link>
-                    <Link to="/user/Sarah">Sarah Page</Link>
-                </div>
-            </div>
+  return (
+    <div className="home-page-wrapper">
+      <section className="hero-section">
+        <h1>Welcome to our <span>Community</span></h1>
+        <p className="subtitle">Discover amazing people and connect with them</p>
+        
+        <div className="links">
+          <Link to="/about">Explore Features</Link>
+          <Link to="/about?topic=history">Our History</Link>
+          <Link to="/about?topic=team">Meet the Team</Link>
+          <Link to="/contact?ref=homepage">Get in Touch</Link>
+        </div>
+      </section>
 
-            <UsersList/>
-        </>
-    )
+      <section className="featured-users">
+        <h2>Featured Members</h2>
+        <div className="links">
+          <Link to="/user/Alex">Alex's Profile</Link>
+          <Link to="/user/Sarah">Sarah's Profile</Link>
+        </div>
+        <UsersList />
+      </section>
+    </div>
+  );
 }

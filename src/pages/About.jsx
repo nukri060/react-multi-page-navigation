@@ -1,34 +1,34 @@
-import { useSearchParams, Link } from "react-router-dom";
+import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 export default function About() {
   const [searchParams] = useSearchParams();
-  const topic = searchParams.get("topic"); 
-
-  let content;
-  if (topic === "history") {
-    content = <p>This is the history section of About.</p>;
-  } else if (topic === "team") {
-    content = <p>This is the team section of About.</p>;
-  } else {
-    content = <p>Welcome to the About page. Choose a topic!</p>;
-  }
+  const topic = searchParams.get('topic');
 
   return (
     <div className="about-page-wrapper">
-      <h2>About Page</h2>
-      {content}
-
-      <div className="topics-list">
-        <Link to="/about?topic=history">
-          <button className={topic === "history" ? "active" : ""}>History</button>
-        </Link>
-        <Link to="/about?topic=team">
-          <button className={topic === "team" ? "active" : ""}>Team</button>
-        </Link>
-        <Link to="/about">
-          <button className={!topic ? "active" : ""}>Default</button>
-        </Link>
-      </div>
+      <h1>About Our Community</h1>
+      {topic === 'history' && (
+        <section>
+          <h2>Our History</h2>
+          <p>Founded in 2020, our community started as a small group of enthusiasts. Over the years, we have grown into a thriving platform for connection and learning.</p>
+          <p>We are proud of our journey and the milestones we have achieved together with our members.</p>
+        </section>
+      )}
+      {topic === 'team' && (
+        <section>
+          <h2>Our Team</h2>
+          <p>We are a dedicated team of developers, designers, and community managers passionate about creating a welcoming and engaging environment for everyone.</p>
+          <p>Our goal is to continuously improve the platform and provide the best possible experience for our users.</p>
+        </section>
+      )}
+      {!topic && (
+        <section>
+          <p>Welcome to our vibrant online community! We are dedicated to connecting people and sharing knowledge.</p>
+          <p>Our mission is to provide a platform where individuals can discover, learn, and grow together. We believe in the power of connection and the endless possibilities that arise when people come together.</p>
+          <p>Join us today and become a part of something special!</p>
+        </section>
+      )}
     </div>
   );
 }
