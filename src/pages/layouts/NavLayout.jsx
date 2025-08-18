@@ -1,24 +1,41 @@
-import { Link } from "react-router-dom";
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 export default function NavLayout() {
   return (
     <>
       <nav className='navigation-bar'>
-        <ul className="navigation-wrapper">
+        <ul className='navigation-wrapper'>
           <li>
-            <Link to='/'>Home</Link>
+            <NavLink
+              to='/'
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }>
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to='/about'>About</Link>
+            <NavLink
+              to='/about'
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }>
+              About
+            </NavLink>
           </li>
           <li>
-            <Link to='/contact'>Contact</Link>
+            <NavLink
+              to='/contact'
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }>
+              Contact
+            </NavLink>
           </li>
         </ul>
       </nav>
       <main>
-        <Outlet/>
+        <Outlet />
       </main>
     </>
   );

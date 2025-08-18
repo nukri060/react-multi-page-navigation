@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { UsersList } from "../components/usersList";
 
 export default function Home() {
     return (
@@ -15,6 +16,8 @@ export default function Home() {
                     <Link to="/user/Sarah">Sarah Page</Link>
                 </div>
             </div>
+
+            <UsersList/>
         </>
     )
 }

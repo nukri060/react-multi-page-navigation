@@ -47,3 +47,62 @@
   list-style: none;
   text-decoration: none;
 }
+
+a.active {
+  color: red;
+}
+a.pending {
+  color: blue;
+}
+a.transitioning {
+  view-transition-name: my-transition;
+}
+
+.navigation-bar {
+  background-color: #000000;
+  padding: 1rem;
+}
+
+.navigation-wrapper {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+
+a {
+  color: white;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid #f90;
+}
+
+.nav-link.pending {
+  opacity: 0.5;
+}
+
+.users-list {
+  width: 1200px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.username {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.username:hover {
+  text-decoration: underline;
+}
